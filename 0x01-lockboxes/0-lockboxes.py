@@ -4,7 +4,7 @@ can all boxes be unlocked ?
 """
 
 
-def canUnlockAll(boxes: list[list[int]]) -> bool:
+def canUnlockAll(boxes):
     """
     can all boxes be unlocked ?
     """
