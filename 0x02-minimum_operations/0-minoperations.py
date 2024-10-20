@@ -4,7 +4,6 @@
 """
 
 
-# copyAll(l) => l*2
 def minOperations(n: int) -> int:
     """
     min operations to reach n characters
