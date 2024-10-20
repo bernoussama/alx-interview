@@ -15,6 +15,7 @@ def minOperations(n: int) -> int:
         while n % divisor == 0:
             factors.append(divisor)
             n //= divisor
+
         divisor += 1
 
     return sum(factors)
