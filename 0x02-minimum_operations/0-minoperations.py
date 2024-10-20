@@ -8,7 +8,7 @@ def minOperations(n: int) -> int:
     """
     min operations to reach n characters
     """
-    factors: list[int] = []
+    factors = []
     divisor = 2
     while n > 1:
         # divide by divisor if it's divisible
