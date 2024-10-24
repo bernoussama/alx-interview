@@ -9,12 +9,13 @@ log parsing
 from datetime import datetime
 import sys
 import re
+from typing import Any
 
 ip_pattern = r"(((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4})"
 exp = r"^{} - \[(.*)\] \"(.*)\" (\d*) (\d*)$".format(ip_pattern)
 
 
-def parse_line(line: str):
+def parse_line(line):
 
     result = {}
 
