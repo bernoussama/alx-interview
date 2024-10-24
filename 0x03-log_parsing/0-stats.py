@@ -77,7 +77,7 @@ if __name__ == "__main__":
                         print(f"{status_code}: {count}")
             lines = lines + 1 if lines < 10 else 1
         _ = sys.stdout.flush()
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, EOFError):
         print(f"File size: {output['total_file_size']}")
         for status_code, count in output["status_codes"].items():
             if count != 0:
