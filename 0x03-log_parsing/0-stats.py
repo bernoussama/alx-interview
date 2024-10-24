@@ -18,6 +18,10 @@ exp = r"^{} - \[(.*)\] \"(.*)\" (\d*) (\d*)$".format(ip_pattern)
 def parse_line(line):
     """
     parse line
+    Args:
+        line: line to parse
+    Returns:
+        result: dict | None
     """
 
     result = {}
@@ -57,6 +61,10 @@ def parse_line(line):
 def print_stats(output):
     """
     print stats
+    Args:
+        output: dict
+    Returns:
+        None
     """
     print(f"File size: {output['total_file_size']}")
     for status_code, count in output["status_codes"].items():
