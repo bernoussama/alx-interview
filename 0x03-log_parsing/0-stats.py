@@ -72,31 +72,36 @@ def print_stats(output):
             print(f"{status_code}: {count}")
 
 
-lines = 1
-output = {
-    "total_file_size": 0,
-    "status_codes": {
-        200: 0,
-        301: 0,
-        400: 0,
-        401: 0,
-        403: 0,
-        404: 0,
-        405: 0,
-        500: 0,
-    },
-}
-try:
-    # for line in sys.stdin:
-    while True:
-        line = input()
-        result = parse_line(line)
-        output["total_file_size"] += int(result["file_size"])
-        output["status_codes"][int(result["status_code"])] += 1
-        if lines % 10 == 0:
-            print_stats(output)
-        lines += 1
-    # _ = sys.stdout.flush()
-except (KeyboardInterrupt, EOFError):
-    print_stats(output)
-    # sys.exit(0)
+def main():
+    lines = 1
+    output = {
+        "total_file_size": 0,
+        "status_codes": {
+            200: 0,
+            301: 0,
+            400: 0,
+            401: 0,
+            403: 0,
+            404: 0,
+            405: 0,
+            500: 0,
+        },
+    }
+    try:
+        # for line in sys.stdin:
+        while True:
+            line = input()
+            result = parse_line(line)
+            output["total_file_size"] += int(result["file_size"])
+            output["status_codes"][int(result["status_code"])] += 1
+            if lines % 10 == 0:
+                print_stats(output)
+            lines += 1
+        # _ = sys.stdout.flush()
+    except (KeyboardInterrupt, EOFError):
+        print_stats(output)
+        # sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()
