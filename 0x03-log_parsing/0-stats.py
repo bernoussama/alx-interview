@@ -54,6 +54,16 @@ def parse_line(line):
         return
 
 
+def print_stats(output):
+    """
+    print stats
+    """
+    print(f"File size: {output['total_file_size']}")
+    for status_code, count in output["status_codes"].items():
+        if count != 0:
+            print(f"{status_code}: {count}")
+
+
 if __name__ == "__main__":
     lines = 1
     output = {
@@ -76,16 +86,11 @@ if __name__ == "__main__":
             result = parse_line(line)
             output["total_file_size"] += int(result["file_size"])
             output["status_codes"][int(result["status_code"])] += 1
-            if lines == 10:
-                print(f"File size: {output['total_file_size']}")
-                for status_code, count in output["status_codes"].items():
-                    if count != 0:
-                        print(f"{status_code}: {count}")
-            lines = lines + 1 if lines < 10 else 1
+            if lines % 10 == 0:
+                print_stats(output)
+            lines += 1
         _ = sys.stdout.flush()
     except (KeyboardInterrupt, EOFError):
-        print(f"File size: {output['total_file_size']}")
-        for status_code, count in output["status_codes"].items():
-            if count != 0:
-                print(f"{status_code}: {count}")
         sys.exit(0)
+    finally:
+        print_stats(output)
