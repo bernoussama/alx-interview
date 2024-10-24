@@ -67,7 +67,9 @@ if __name__ == "__main__":
         },
     }
     try:
-        for line in sys.stdin:
+        # for line in sys.stdin:
+        while True:
+            line = input()
             result = parse_line(line)
             output["total_file_size"] += int(result["file_size"])
             output["status_codes"][int(result["status_code"])] += 1
