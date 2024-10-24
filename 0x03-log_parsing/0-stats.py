@@ -9,7 +9,6 @@ log parsing
 from datetime import datetime
 import sys
 import re
-from typing import Any
 
 ip_pattern = r"(((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4})"
 exp = r"^{} - \[(.*)\] \"(.*)\" (\d*) (\d*)$".format(ip_pattern)
@@ -66,10 +65,10 @@ def print_stats(output):
     Returns:
         None
     """
-    print(f"File size: {output['total_file_size']}")
+    print("File size: {}".format(output["total_file_size"]))
     for status_code, count in output["status_codes"].items():
         if count != 0:
-            print(f"{status_code}: {count}")
+            print("{status_code}: {count}".format(status_code=status_code, count=count))
 
 
 def main():
