@@ -16,6 +16,9 @@ exp = r"^{} - \[(.*)\] \"(.*)\" (\d*) (\d*)$".format(ip_pattern)
 
 
 def parse_line(line):
+    """
+    parse line
+    """
 
     result = {}
 
