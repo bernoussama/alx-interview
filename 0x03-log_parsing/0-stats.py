@@ -68,7 +68,7 @@ def print_stats(output):
     print("File size: {}".format(output["total_file_size"]))
     for status_code, count in output["status_codes"].items():
         if count != 0:
-            print("{status_code}: {count}".format(status_code=status_code, count=count))
+            print("{}: {}".format(status_code, count))
 
 
 def main():
