@@ -96,8 +96,7 @@ try:
         if lines % 10 == 0:
             print_stats(output)
         lines += 1
-    _ = sys.stdout.flush()
+    # _ = sys.stdout.flush()
 except (KeyboardInterrupt, EOFError):
-    sys.exit(0)
-finally:
     print_stats(output)
+    # sys.exit(0)
