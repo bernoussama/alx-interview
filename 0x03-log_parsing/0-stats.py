@@ -3,11 +3,15 @@
 log parsing
 """
 
-# input format : <IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> <file size>
+# input format : <IP Address> - [<date>] "GET /projects/260 HTTP/1.1"
+# <status code> <file size>
 
 from datetime import datetime
 import sys
 import re
+
+ip_pattern = r"(((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4})"
+exp = r"^{} - \[(.*)\] \"(.*)\" (\d*) (\d*)$".format(ip_pattern)
 
 
 def parse_line(line: str):
@@ -15,7 +19,7 @@ def parse_line(line: str):
     result = {}
 
     match = re.search(
-        r"^(((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}) - \[(.*)\] \"(.*)\" (\d*) (\d*)$",
+        exp,
         line,
     )
     if match is not None:
