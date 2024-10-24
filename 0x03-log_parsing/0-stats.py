@@ -89,6 +89,7 @@ def main():
     }
     try:
         for line in sys.stdin:
+            line = line.strip()
             result = parse_line(line)
             output["total_file_size"] += int(result["file_size"])
             output["status_codes"][int(result["status_code"])] += 1
