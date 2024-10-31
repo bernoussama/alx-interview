@@ -30,9 +30,9 @@ def validUTF8(data: List[int]):
             byt = data[idx]
         except IndexError:
             return False
-        count = 0
 
         count = countOnes(byt)
+
         # For a 1-byte character, the first bit is a 0
         if count == 0:
             idx += 1
@@ -44,7 +44,7 @@ def validUTF8(data: List[int]):
         # For an n-bytes character,
         # the first n bits are all one's,
         # the n + 1 bit is 0,
-        for n in range(idx + 1, idx + count - 1):
+        for n in range(idx + 1, idx + count):
             # followed by n - 1 bytes
             # with the most significant 2 bits being 10.
             try:
