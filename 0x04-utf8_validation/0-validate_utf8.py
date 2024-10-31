@@ -47,5 +47,5 @@ def validUTF8(data: List[int]):
             if countOnes(data[n]) != 1:
                 return False
 
-        idx += count - 1
+        idx += count
     return True
