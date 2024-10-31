@@ -26,7 +26,10 @@ def validUTF8(data: List[int]):
 
     idx = 0
     while idx < len(data):
-        byt = data[idx]
+        try:
+            byt = data[idx]
+        except IndexError:
+            return False
         count = 0
 
         count = countOnes(byt)
