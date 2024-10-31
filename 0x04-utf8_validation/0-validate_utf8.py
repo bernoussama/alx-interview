@@ -13,6 +13,9 @@ def validUTF8(data: List[int]):
     """
 
     def countOnes(byt: int):
+        """
+        count leading ones
+        """
         count = 0
         for b in range(7, -1, -1):
             if byt & (1 << b):
