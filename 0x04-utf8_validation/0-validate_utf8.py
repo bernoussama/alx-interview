@@ -41,7 +41,7 @@ def validUTF8(data: List[int]):
         # For an n-bytes character,
         # the first n bits are all one's,
         # the n + 1 bit is 0,
-        for n in range(idx + 1, idx + count):
+        for n in range(idx + 1, idx + count - 1):
             # followed by n - 1 bytes
             # with the most significant 2 bits being 10.
             if countOnes(data[n]) != 1:
