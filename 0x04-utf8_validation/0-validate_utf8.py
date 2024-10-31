@@ -44,7 +44,10 @@ def validUTF8(data: List[int]):
         for n in range(idx + 1, idx + count - 1):
             # followed by n - 1 bytes
             # with the most significant 2 bits being 10.
-            if countOnes(data[n]) != 1:
+            try:
+                if countOnes(data[n]) != 1:
+                    return False
+            except IndexError:
                 return False
 
         idx += count
