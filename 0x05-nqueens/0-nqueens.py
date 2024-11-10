@@ -44,7 +44,7 @@ def solve_nqueens(n):
             solutions.append(solution)
             return
 
-        # Consider this column and try placing this queen in all rows one by one
+        # placing this queen in all rows one by one
         for i in range(n):
             if is_safe(board, i, col, n):
                 # Place this queen in board[i][col]
