@@ -23,7 +23,6 @@ request(url, async (error, response, body) => {
   }
   const data = JSON.parse(body);
   for (const characterUrl of data.characters) {
-    console.log(`Fetching character ${characterUrl}`);
     const character = await getCharacter(characterUrl);
     console.log(character);
   }
