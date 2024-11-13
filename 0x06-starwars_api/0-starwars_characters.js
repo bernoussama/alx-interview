@@ -1,14 +1,14 @@
 #!/usr/bin/node
 
-const request = require("request");
+const request = require('request');
 
 if (process.argv.length < 3) {
-  console.log("Usage: node 0-starwars_characters.js <film-id>");
+  console.log('Usage: node 0-starwars_characters.js <film-id>');
   process.exit(1);
 }
 const filmId = process.argv[2];
 
-const apiUrl = "https://swapi-api.alx-tools.com/api/";
+const apiUrl = 'https://swapi-api.alx-tools.com/api/';
 const url = `${apiUrl}films/${filmId}/`;
 
 request(url, async (error, response, body) => {
@@ -27,7 +27,7 @@ request(url, async (error, response, body) => {
   }
 });
 
-function getCharacter(characterUrl) {
+function getCharacter (characterUrl) {
   return new Promise((resolve, reject) => {
     request(characterUrl, async (error, response, body) => {
       if (error) {
