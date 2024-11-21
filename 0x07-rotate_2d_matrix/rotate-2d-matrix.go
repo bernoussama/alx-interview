@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"slices"
+)
 
 func main() {
 	matrix := [][]int{
@@ -10,24 +13,19 @@ func main() {
 	}
 
 	printMatrix(matrix)
-	rotate90(matrix)
+	rotateCW(matrix)
 	fmt.Println("after rotate 90")
 	printMatrix(matrix)
 }
 
-func rotate90(matrix [][]int) {
-	tmp := make([][]int, len(matrix))
-	for i := range tmp {
-		tmp[i] = make([]int, len(matrix[0]))
-	}
-
+func rotateCW(matrix [][]int) {
 	n := len(matrix)
-	for i := 0; i < len(matrix); i++ {
-		for j := 0; j < len(matrix[0]); j++ {
-			tmp[n-j-1][i] = matrix[i][j]
+	for i := range n {
+		for j := i + 1; j < n; j++ {
+			matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 		}
+		slices.Reverse(matrix[i])
 	}
-	copy(matrix, tmp)
 }
 
 // printMatrix prints the matrix
