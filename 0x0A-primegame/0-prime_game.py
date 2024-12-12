@@ -1,9 +1,5 @@
 #!/usr/bin/python3
 """Prime Game Module
-
-This module contains the implementation of a prime game where players take turns
-choosing prime numbers from a set of integers. The player who cannot make a move
-loses the game.
 """
 
 
